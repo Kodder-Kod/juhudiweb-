@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV Schedule</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #e6e6e6;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h2>TV Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th id="time">Time</th>
+                <th headers="time Monday">Monday</th>
+                <th headers="time Tuesday">Tuesday</th>
+                <th headers="time Wednesday">Wednesday</th>
+                <th headers="time Thursday">Thursday</th>
+                <th headers="time Friday">Friday</th>
+                <th headers="time Saturday">Saturday</th>
+                <th headers="time Sunday">Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th headers="time">12:00</th>
+                <td headers="time2 Monday">Ben &amp; Jerry's Show (60 mins)</td>
+                <td headers="time2 Tuesday">Jumping Night (30 mins)</td>
+                <td headers="time2 Wednesday">Jumping Night (30 mins)</td>
+                <td headers="time2 Thursday">Viral Spoon Videos (30 mins)</td>
+                <td headers="time2 Friday">Viral Spoon Videos (30 mins)</td>
+                <td headers="time2 Saturday">The Chronicles of Wonderland (30 mins)</td>
+                <td headers="time2 Sunday">The Chronicles of Wonderland (30 mins)</td>
+            </tr>
+              <th headers="time">12:30</th>
+                <td headers="time3 Monday" class="hidden"></td>
+                <td headers="time3 Tuesday" class="hidden"></td>
+                <td headers="time3 Wednesday" class="hidden"></td>
+                <td headers="time3 Thursday" class="hidden">North Wonderland Jumping (90 mins)</td>
+                <td headers="time3 Friday" class="hidden">Cuttingist (180 mins)</td>
+                <td headers="time3 Saturday" class="hidden">Before News (150 mins)</td>
+                <td headers="time3 Sunday" class="hidden"></td>
+            </tr>
+              <th>1:00</th>
+                <td headers="time3 Monday">Walk Awards (90 mins)</td>
+                <td headers="time3 Tuesday">Walk Awards (90 mins)</td>
+                <td headers="time3 Wednesday">Grand Theft Coffeemaker (60 mins)</td>
+                <td headers="time3 Thursday">America's Got Arm (30 mins)</td> 
+                <td headers="time3 Friday">America's Got Arm (30 mins)</td>
+                <td headers="time3 Saturday">America's Got Arm (30 mins)</td>            
+            </tr>
+            <tr>
+                <th>1:30</th>
+                <td headers="time3 Thursday" class="hidden">North Wonderland Jumping (90 mins)</td>
+                <td headers="time3 Friday" class="hidden">Cuttingist (180 mins)</td>
+                <td headers="time3 Saturday" class="hidden">Before News (150 mins)</td>                        
+            </tr>
+            <tr>
+                <th>2:00</th>
+                <td headers="time3 Wednesday">Stuff Inc (30 mins)</td>            
+            </tr>
+            <tr>
+                <th>2:30</th>
+                <td headers="time4 Monday" class="hidden">Kill Abdirahman (30 mins)</td>
+                <td headers="time4 Tuesday" class="hidden">Kill Abdirahman (30 mins)</td>
+                <td headers="time4 Wednesday" class="hidden">Kill Abdirahman (30 mins)</td>              
+            </tr>
+            <tr>
+                <th>3:00</th>
+                <td headers="time5 Monday">60 Sunday (60 mins)</td>
+                <td headers="time5 Tuesday">Let's Walk a Arm (30 mins)</td>
+                <td headers="time5 Wednesday">The Fastest Table (60 mins)</td>
+                <td headers="time5 Thursday">The Fastest Table (60 mins)</td>
+            </tr>
+            <tr>
+                <th>3:30</th>
+                <td headers="time5 Tuesday" class="hidden">Police Cops (30 mins)</td>
+            </tr>
+            <tr>
+                <th>4:00</th>
+                <td headers="time6 Monday">Pointy Fall (30 mins)</td>
+                <td headers="time6 Tuesday">Woodbury Saturday (30 mins)</td>
+                <td headers="time6 Wednesday">Woodbury Saturday (30 mins)</td>
+                <td headers="time6 Thursday">The Lamp Friday of Our Lives (30 mins)</td>
+                <td headers="time6 Saturday">Jumpingist (90 mins)</td>
+                <td headers="time6 Sunday">Get Selfish! (180 mins)</td>
+            </tr>
+            <tr>
+                <th>4:30</th>
+                <td headers="time5 Monday" class="hidden">Be Fearful #423212 (30 mins)</td>
+                <td headers="time5 Tuesday" class="hidden">Be Fearful #423212 (30 mins)</td>
+                <td headers="time5 Wednesday" class="hidden">The Bears (90 mins)</td>
+                <td headers="time5 Thursday" class="hidden">Raised by Polices (90 mins)</td>
+                <td headers="time5 Friday" class="hidden">Reality Distraction (90 mins)</td>
+            </tr>
+            <tr>
+                <th>5:00</th>
+                <td headers="time7 Monday">Don't Run There (60 mins)</td>
+                <td headers="time7 Tuesday">Ads With Ad Breaks (60 mins)</td>
+            </tr>
+            <tr>
+                <th>5:30</th>
+                <td headers="time7 Saturday" class="hidden">Hit Cutting (90 mins)</td>
+                <td headers="time7 Tuesday" class="hidden">Ads With Ad Breaks (60 mins)</td>
+            </tr>
+            <tr>
+                <th>6:00</th>
+                <td headers="time8 Monday">Table Street (30 mins)</td>
+                <td headers="time8 Tuesday">Table Street (30 mins)</td>
+                <td headers="time8 Wednesday">Table Street (30 mins)</td>
+                <td headers="time8 Thursday">Table Street (30 mins)</td>
+                <td headers="time8 Friday">Table Street (30 mins)</td>               
+            </tr>
+            <tr>
+                <th>6:30</th>
+                <td headers="time9 Monday" class="hidden">Honey, I Before the Kids (120 mins)</td>
+                <td headers="time9 Tuesday" class="hidden">Honey, I Before the Kids (120 mins)</td>
+                <td headers="time9 Wednesday" class="hidden">Honey, I Before the Kids (120 mins)</td>
+                <td headers="time9 Thursday" class="hidden">Super Happy Run Show (120 mins)</td>
+                <td headers="time9 Friday" class="hidden">Super Happy Run Show (120 mins)</td>             
+            </tr>
+            <tr>
+                <th>7:00</th>
+                <td headers="time8 Saturday">Lost Reboot 2 (90 mins)</td>
+                <td headers="time8 Sunday">Lost Reboot 2 (90 mins)</td>          
+            </tr>
+            <tr>
+                <th>8:30</th>
+                <td headers="time10 Monday" class="hidden">Another Derivative Show (90 mins)</td>
+                <td headers="time10 Tuesday" class="hidden">Cutting My Ride (90 mins)</td>
+                <td headers="time10 Wednesday" class="hidden">Cutting My Ride (90 mins)</td>
+                <td headers="time10 Thursday" class="hidden">Cutting My Ride (90 mins)</td>
+                <td headers="time10 Friday" class="hidden">President Bears (90 mins)</td>
+                <td headers="time10 Saturday" class="hidden">President Bears (90 mins)</td>
+                <td headers="time10 Sunday" class="hidden">Pay-Per-Download (90 mins)</td>           
+            </tr>
+            <tr>
+                <th>10:00</th>
+                <td headers="time11 Monday">Dr. LostSpoon (30 mins)</td>
+                <td headers="time11 Tuesday">Let's Fall a Thing (30 mins)</td>
+                <td headers="time11 Wednesday">Hit Softballs (30 mins)</td>
+                <td headers="time11 Thursday">The Price is Pointy (120 mins)</td>
+                <td headers="time11 Friday">The Price is Pointy (120 mins)</td>
+                <td headers="time11 Saturday">The Price is Pointy (120 mins)</td>
+                <td headers="time11 Sunday">The Price is Pointy (120 mins)</td>           
+            </tr>
+            <tr>
+                <th>10:30</th>
+                <td headers="time12 Monday" class="hidden">12 Selfish Men (90 mins)</td>
+                <td headers="time12 Tuesday" class="hidden">12 Selfish Men (90 mins)</td>
+                <td headers="time12 Wednesday" class="hidden">12 Selfish Men (90 mins)</td>           
+            </tr>
+            <tr>
+                <th class="hidden">00:30</th>
+                <td headers="time1 Tuesday" class="hidden">CSI: Wonderland (30 mins)</td>
+                <td headers="time1 Wednesday" class="hidden">CSI: Wonderland (30 mins)</td>
+                <td headers="time1 Thursday" class="hidden">CSI: Wonderland (30 mins)</td>
+                <td headers="time1 Friday" class="hidden">Woodbury Thursday (30 mins)</td>
+                <td headers="time1 Saturday" class="hidden">Woodbury Thursday (30 mins)</td>
+                <td headers="time1 Sunday" class="hidden">60 Wednesday (210 mins)</td>
+        </tbody>
+    </table>
+</body>
+</html>
