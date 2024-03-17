@@ -1,4 +1,4 @@
- import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 /**
  *  All Dashboard Routes
  *
@@ -25,12 +25,12 @@
 
 import {
 	Briefcase,
-    ListTask,
-    People,
-    Bullseye,
-    CreditCard,
-    Save,
-    Upload,
+	ListTask,
+	People,
+	Bullseye,
+	CreditCard,
+	Save,
+	Upload,
 	Window,
 	House,
 	ListCheck,
@@ -43,41 +43,37 @@ export const DashboardMenu = [
 	{
 		id: uuid(),
 		title: 'Dashboard',
-		icon: <House size={18} style={{color:"white"}}/>,
+		icon: <House size={18} style={{ color: "white" }} />,
 		link: '/pageroutes/dashboard'
 	},
 	{
 		id: uuid(),
 		title: 'Members',
-		icon: <People size={18} style={{color:"white"}}/>,
+		icon: <People size={18} style={{ color: "white" }} />,
 		link: "/pageroutes/peopleroute"
 	},
 	{
 		id: uuid(),
 		title: 'Savings',
-		icon: <Save size={18} style={{color:"white"}}/>,
+		icon: <Save size={18} style={{ color: "white" }} />,
 		link: '/pageroutes/saveroute'
-	},	
+	},
 	{
 		id: uuid(),
 		title: 'Loans',
-		icon: <Upload size={18} style={{color:"white"}}/>,
+		icon: <Upload size={18} style={{ color: "white" }} />,
 		link: '/pageroutes/loanroute'
 	},
 	{
 		id: uuid(),
 		title: 'Transacation History',
-		icon: <ListCheck size={18} style={{color:"white"}}/>,
+		icon: <ListCheck size={18} style={{ color: "white" }} />,
 		link: '/pageroutes/history'
 	},
-	
-	{
-		id: uuid(),
-		title: 'Contact',
-		icon: <Messenger size={18} style={{color:"white"}}/>,
-		link: '/pagesroutes/contact'
-	}
+
+
 
 ];
+
 
 export default DashboardMenu;
