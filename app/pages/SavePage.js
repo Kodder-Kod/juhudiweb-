@@ -47,7 +47,7 @@ const Save = () => {
                     <Col xl={3} lg={12} md={12} xs={12} >
                         {SavingData.map((item, index) => {
                             return (
-                                <div style={{ marginTop: 10 }}>
+                                <div  key={index}  style={{ marginTop: 10 }}>
                                     <SaveDashboard info={item} />
                                 </div>
                             )
