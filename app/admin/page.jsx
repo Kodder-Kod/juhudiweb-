@@ -25,7 +25,7 @@ import People from '../pages/People.js';
 
 
 
-const Admin = () => {
+const  Admin = () => {
 
 
 
