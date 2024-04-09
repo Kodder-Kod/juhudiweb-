@@ -12,7 +12,8 @@ const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const TasksPerformance = () => {
+const ClientPerformance = () => {
+
 
 
     const [isMobile, setIsMobile] = useState(false);
@@ -144,35 +145,14 @@ const TasksPerformance = () => {
             <Card.Body>
                 <div className="d-flex align-items-center justify-content-between">
                     <div>
-                        <h4 className="mb-0">Juhudi Sacco Performance </h4>
+                        <h4 className="mb-0">Overall Performance </h4>
                     </div>
 
                 </div>
                 <div className="graphs">
-            <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Total Amount by time</p>
-                <AreaChart
-                    width={isMobile ? 300 : 410}
-                    height={isMobile ? 250 : 300}
-                    data={data}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                >
-                    {/* Your gradient defs */}
-                    <defs>
-                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-                        </linearGradient>
-                    </defs>
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                </AreaChart>
-            </div>
-
-            <div style={{ marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Actual amount Saving by Depositors</p>
+        
+            <div style={{ margin: 5 ,marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
+                <p>Saving amount by Month</p>
                 <BarChart
                     width={isMobile ? 300 : 390}
                     height={isMobile ? 300: 300}
@@ -187,7 +167,7 @@ const TasksPerformance = () => {
             </div>
 
             <div style={{ marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Actual Amount Loan by Borrowers</p>
+                <p>Loan amount by month</p>
                 <BarChart
                     width={isMobile ? 300 : 390}
                     height={isMobile ? 300 :300}
@@ -208,4 +188,4 @@ const TasksPerformance = () => {
     )
 }
 
-export default TasksPerformance
+export default ClientPerformance;

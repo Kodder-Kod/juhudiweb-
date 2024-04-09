@@ -14,8 +14,9 @@ const PeopleDashboard = props => {
 
     const { info } = props;
     return (
-        <Card style={{
-            width: 160, borderRadius: 100, height: 160, boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',// Adjust the values as needed
+        <div style={{display:'flex', alignItems:'center',justifyContent:'center'}}>
+               <Card style={{
+  marginTop:20, width: 160, borderRadius: 100, height: 160, boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',// Adjust the values as needed
         }}>
 
 
@@ -42,6 +43,8 @@ const PeopleDashboard = props => {
                 </div>
             </Card.Body>
         </Card>
+        </div>
+     
     )
 }
 

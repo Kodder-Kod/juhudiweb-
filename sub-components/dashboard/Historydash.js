@@ -7,7 +7,7 @@ import { MoreVertical } from 'react-feather';
 // import required data files
 import TeamsData from "../../data/dashboard/TeamsData";
 
-const Borrowers = () => {
+const HistoryDash  = () => {
 
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         (<Link
@@ -46,9 +46,9 @@ const Borrowers = () => {
     };
 
     return (
-        <Card className="h-100" style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
+        <Card className="h-100"  style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
             <Card.Header className="bg-white py-4">
-                <h4 className="mb-0">Borrowers </h4>
+                <h4 className="mb-0">All Members </h4>
             </Card.Header>
             <Table responsive className="text-nowrap">
                 <thead className="table-light">
@@ -88,4 +88,4 @@ const Borrowers = () => {
     )
 }
 
-export default Borrowers;
+export default HistoryDash

@@ -1,18 +1,17 @@
 // import node module libraries
-'use client'
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import { Card, Dropdown } from 'react-bootstrap';
 import { MoreVertical } from 'react-feather';
 import dynamic from 'next/dynamic'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar, Legend, AreaChart, Area } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar, Legend, Area, AreaChart, linearGradient } from 'recharts';
 
 
 const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B', uv: 800, pv: 2000, amt: 1000 }, { name: 'Page c', uv: 470, pv: 1200, amt: 3000 }];
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const TasksPerformance = () => {
+const SavingPerformanceClient = () => {
 
 
     const [isMobile, setIsMobile] = useState(false);
@@ -30,7 +29,6 @@ const TasksPerformance = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-
 
     const perfomanceChartSeries = [100, 78, 89];
     const perfomanceChartOptions = {
@@ -115,9 +113,6 @@ const TasksPerformance = () => {
     };
 
     const ActionMenu = () => {
-
-
-
         return (
             <Dropdown>
                 <Dropdown.Toggle as={CustomToggle}>
@@ -144,63 +139,82 @@ const TasksPerformance = () => {
             <Card.Body>
                 <div className="d-flex align-items-center justify-content-between">
                     <div>
-                        <h4 className="mb-0">Juhudi Sacco Performance </h4>
+                        <h4 className="mb-0">Saving Performance </h4>
                     </div>
 
                 </div>
-                <div className="graphs">
-            <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Total Amount by time</p>
-                <AreaChart
-                    width={isMobile ? 300 : 410}
-                    height={isMobile ? 250 : 300}
-                    data={data}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                >
-                    {/* Your gradient defs */}
-                    <defs>
-                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-                        </linearGradient>
-                    </defs>
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                </AreaChart>
-            </div>
+                <div className="graphs md:flex md:flex-row flex-col">
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
+                        <p>Total savings by time</p>
+                        <AreaChart
+                            width={isMobile ? 300 : 410}
+                            height={isMobile ? 250 : 220}
+                            data={data}
+                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        >
+                            {/* Your gradient defs */}
+                            <defs>
+                                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                                    <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                                </linearGradient>
+                            </defs>
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                            <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                        </AreaChart>
 
-            <div style={{ marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Actual amount Saving by Depositors</p>
-                <BarChart
-                    width={isMobile ? 300 : 390}
-                    height={isMobile ? 300: 300}
-                    data={data}
-                >
-                    <XAxis dataKey="name" stroke="#8884d8" />
-                    <YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-                    <Bar dataKey="uv" barSize={30} fill="#8884d8" />
-                </BarChart>
-            </div>
+                    </div>
 
-            <div style={{ marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Actual Amount Loan by Borrowers</p>
-                <BarChart
-                    width={isMobile ? 300 : 390}
-                    height={isMobile ? 300 :300}
-                    data={data}
-                >
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-                    <Bar dataKey="uv" barSize={30} fill="#8884d8" />
-                </BarChart>
-            </div>
-        </div>
+
+                    {/*
+                    <p>saving transactions per by time
+                    </p>
+
+                    <LineChart width={400} height={200} data={data} margin={{ top: 5, bottom: 5, left: 0 }}>
+                        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                    </LineChart>*/ }
+
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
+
+                        <p> Saving amount by Member</p>
+
+                        <BarChart
+                            width={isMobile ? 300 : 390}
+                            height={isMobile ? 300 : 250}
+                            data={data}
+                        >
+                            <XAxis dataKey="name" stroke="#8884d8" />
+                            <YAxis />
+                            <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                            <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                            <Bar dataKey="uv" barSize={30} fill="#8884d8" />
+                        </BarChart>
+                    </div>
+
+
+
+                    {/**
+                * 
+                 * 
+                    <p>actual amount per transaction</p>
+
+                    <LineChart width={400} height={200} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                    </LineChart>
+
+                     */}
+
+                </div>
 
 
             </Card.Body>
@@ -208,4 +222,4 @@ const TasksPerformance = () => {
     )
 }
 
-export default TasksPerformance
+export default SavingPerformanceClient;

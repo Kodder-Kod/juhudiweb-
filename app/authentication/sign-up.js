@@ -58,7 +58,7 @@ const SignUp = () => {
 
                 handleCodeInApp: true,
 
-                url: "https://juhudisacco001-default-rtdb.firebaseio.com",
+                url:"https://juhudu002-default-rtdb.firebaseio.com",
               })
                 .then(() => {
                   console.log(" waze")

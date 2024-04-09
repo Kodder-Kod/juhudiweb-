@@ -78,7 +78,7 @@ const QuickMenu = () => {
                             </div>
                             <Notifications />
                             <div className="border-top px-3 pt-3 pb-3">
-                                <Link href="/dashboard/notification-history" className="text-link fw-semi-bold">
+                                <Link href="" className="text-link fw-semi-bold">
                                     See all Notifications
                                 </Link>
                             </div>
@@ -104,19 +104,19 @@ const QuickMenu = () => {
                         <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
                                
-                                <Link href="../../pageroutes/overviewProfile" className="text-inherit fs-6">
+                                <Link href="/pageroutes/overviewprofile" className="text-inherit fs-6">
                                 <h5 className="mb-1"> John E. Grainger</h5>
                                     View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
                         </Dropdown.Item>
                         <Dropdown.Item eventKey="2">
-                        <Link href="../../pageroutes/editProfile" className="fs-5">
+                        <Link href="/pageroutes/editprofile" className="fs-5">
                                 Edit Profie 
                             </Link> 
                         </Dropdown.Item>
                         <Dropdown.Item>
-                         <Link href="../../pageroutes/sign-In" className="fs-5">
+                         <Link href="/pageroutes/sign-in" className="fs-5">
                                 Log Out
                             </Link>
                         </Dropdown.Item>
@@ -182,22 +182,15 @@ const QuickMenu = () => {
                             <div className=" dropdown-divider mt-3 mb-2"></div>
                         </Dropdown.Item>
                         <Dropdown.Item eventKey="2">
-                            <i className="fe fe-user me-2"></i> Edit Profile
+                        <Link href="/pageroutes/editprofile" className="fs-5">
+                                Edit Profie 
+                            </Link> 
                         </Dropdown.Item>
-                        <Dropdown.Item eventKey="3">
-                            <i className="fe fe-activity me-2"></i> Activity Log
-                        </Dropdown.Item>
-                        <Dropdown.Item className="text-primary">
-                            <i className="fe fe-star me-2"></i> Go Pro
-                        </Dropdown.Item>
-                        <Dropdown.Item >
-                            <i className="fe fe-settings me-2"></i> Account Settings
-                        </Dropdown.Item>
+                    
                         <Dropdown.Item>
                             <Link href="../../pageroutes/sign-in" className="fs-5">
                                 Log Out
                             </Link>
-                            Log  Out2
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

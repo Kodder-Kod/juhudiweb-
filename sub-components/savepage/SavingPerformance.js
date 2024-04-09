@@ -1,10 +1,10 @@
 // import node module libraries
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import { Card, Dropdown } from 'react-bootstrap';
 import { MoreVertical } from 'react-feather';
 import dynamic from 'next/dynamic'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar, Legend,Area,AreaChart, linearGradient } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar, Legend, Area, AreaChart, linearGradient } from 'recharts';
 
 
 const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B', uv: 800, pv: 2000, amt: 1000 }, { name: 'Page c', uv: 470, pv: 1200, amt: 3000 }];
@@ -12,6 +12,23 @@ const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const SavingPerformance = () => {
+
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const perfomanceChartSeries = [100, 78, 89];
     const perfomanceChartOptions = {
@@ -117,7 +134,7 @@ const SavingPerformance = () => {
     };
 
     return (
-        <Card className="h-100"  style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
+        <Card className="h-100 my-5" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
             {/* card body  */}
             <Card.Body>
                 <div className="d-flex align-items-center justify-content-between">
@@ -126,18 +143,21 @@ const SavingPerformance = () => {
                     </div>
 
                 </div>
-                <div className="graphs" style={{ display: 'flex', flexDirection: 'row' }}>
-
-                    <div style={{margin:5,marginTop:10,boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius:10, padding:15}} >
+                <div className="graphs md:flex md:flex-row flex-col">
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
                         <p>Total savings by time</p>
-                        <AreaChart width={410} height={250} data={data}
-                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                        <AreaChart
+                            width={isMobile ? 300 : 410}
+                            height={isMobile ? 250 : 220}
+                            data={data}
+                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        >
+                            {/* Your gradient defs */}
                             <defs>
                                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                                     <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
                                     <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
                                 </linearGradient>
-
                             </defs>
                             <XAxis dataKey="name" />
                             <YAxis />
@@ -160,19 +180,22 @@ const SavingPerformance = () => {
                         <Tooltip />
                     </LineChart>*/ }
 
-                    <div style={{margin:5 ,marginTop:10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius:10, padding:15}}>
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
 
                         <p> Saving amount by Member</p>
 
-                        <BarChart width={390} height={250} data={data}>
+                        <BarChart
+                            width={isMobile ? 300 : 390}
+                            height={isMobile ? 300 : 250}
+                            data={data}
+                        >
                             <XAxis dataKey="name" stroke="#8884d8" />
                             <YAxis />
                             <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
                             <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-                            <Bar dataKey="uv" fill="#8884d8" barSize={30} 
-                            label={renderCustomBarLabel}/>
+                            <Bar dataKey="uv" barSize={30} fill="#8884d8" />
                         </BarChart>
-                        </div>
+                    </div>
 
 
 

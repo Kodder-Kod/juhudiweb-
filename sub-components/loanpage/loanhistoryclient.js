@@ -7,7 +7,7 @@ import { MoreVertical } from 'react-feather';
 // import required data files
 import TeamsData from "../../data/dashboard/TeamsData";
 
-const Borrowers = () => {
+const LoanHistoryClient = () => {
 
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         (<Link
@@ -88,4 +88,4 @@ const Borrowers = () => {
     )
 }
 
-export default Borrowers;
+export default LoanHistoryClient;

@@ -8,7 +8,7 @@ import {
     Upload
 } from 'react-bootstrap-icons';
 
-export const SavingData = [
+export const SavingDataClient = [
     {
        id:1,
        title : "Total Saving",
@@ -17,14 +17,7 @@ export const SavingData = [
        statInfo: '<span className="text-dark me-2"></span> Sum of total Saving ' ,
        color:'#e0dcfe'
     },
-    {
-        id:2,
-        title : "Depositors " ,
-        value : '10',
-        icon: <People size={18} style={{color:'black'}}/>,
-        statInfo: '<span className="text-dark me-2"></span> Members who have Saved' ,
-        color:'rgb(0, 150, 255)'
-     },
+
     
      {
         id:3,
@@ -35,4 +28,4 @@ export const SavingData = [
         color: 'rgb(34, 139, 34)'
      }
 ];
-export default SavingData;
+export default SavingDataClient;

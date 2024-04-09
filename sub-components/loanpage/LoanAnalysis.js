@@ -1,5 +1,5 @@
 // import node module libraries
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import { Card, Dropdown } from 'react-bootstrap';
 import { MoreVertical } from 'react-feather';
@@ -12,6 +12,23 @@ const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const LoanAnalysis = () => {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
 
     const perfomanceChartSeries = [100, 78, 89];
     const perfomanceChartOptions = {
@@ -117,7 +134,7 @@ const LoanAnalysis = () => {
     };
 
     return (
-        <Card className="h-100" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
+        <Card className="h-100 my-5" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
             {/* card body  */}
             <Card.Body>
                 <div className="d-flex align-items-center justify-content-between">
@@ -126,21 +143,21 @@ const LoanAnalysis = () => {
                     </div>
 
                 </div>
-                <div className="graphs" style={{ display: 'flex', flexDirection: 'row' }}>
-
-
-                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-
-
-                        <p>Total Loans by Time</p>
-                        <AreaChart width={410} height={250} data={data}
-                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                <div className="graphs md:flex md:flex-row flex-col">
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
+                        <p>Total loans by time</p>
+                        <AreaChart
+                            width={isMobile ? 300 : 410}
+                            height={isMobile ? 250 : 220}
+                            data={data}
+                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        >
+                            {/* Your gradient defs */}
                             <defs>
                                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                                     <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
                                     <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
                                 </linearGradient>
-
                             </defs>
                             <XAxis dataKey="name" />
                             <YAxis />
@@ -149,6 +166,7 @@ const LoanAnalysis = () => {
                         </AreaChart>
 
                     </div>
+
 
                     {/*
                     <p>saving transactions per by time
@@ -162,23 +180,24 @@ const LoanAnalysis = () => {
                         <Tooltip />
                     </LineChart>*/ }
 
-
                     <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
 
+                        <p> Saving amount by Member</p>
 
-                        <p> Actual loan by Member</p>
-
-
-                        <BarChart width={390} height={250} data={data}>
+                        <BarChart
+                            width={isMobile ? 300 : 390}
+                            height={isMobile ? 300 : 250}
+                            data={data}
+                        >
                             <XAxis dataKey="name" stroke="#8884d8" />
                             <YAxis />
                             <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
                             <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-
-                            <Bar dataKey="uv" fill="#8884d8" barSize={30} />
+                            <Bar dataKey="uv" barSize={30} fill="#8884d8" />
                         </BarChart>
-
                     </div>
+
+
 
                     {/**
                 * 
