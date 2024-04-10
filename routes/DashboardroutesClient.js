@@ -44,33 +44,33 @@ export const DashboardMenuClient = [
 		id: uuid(),
 		title: 'Dashboard',
 		icon: <House size={18} style={{color:"white"}}/>,
-		link: '/pageroutes/dashboard'
+		link: '/pageroutesclient/dashboardclient'
 	},
 
 	{
 		id: uuid(),
 		title: 'Savings',
 		icon: <Save size={18} style={{color:"white"}}/>,
-		link: '/pageroutes/saveroute'
+		link: '/pageroutesclient/saveclientpage'
 	},	
 	{
 		id: uuid(),
 		title: 'Loans',
 		icon: <Upload size={18} style={{color:"white"}}/>,
-		link: '/pageroutes/loanroute'
+		link: '/pageroutesclient/loanclientpage'
 	},
 	{
 		id: uuid(),
 		title: 'Transacation History',
 		icon: <ListCheck size={18} style={{color:"white"}}/>,
-		link: '/pageroutes/history'
+		link: '/pageroutesclient/historyclient'
 	},
 
 	{
 		id: uuid(),
 		title: 'Contact Us',
 		icon: <People size={18} style={{color:"white"}}/>,
-		link: ""
+		link: "/pageroutesclient/contactclientpage"
 	},
 	
 ];

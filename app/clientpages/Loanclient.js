@@ -9,7 +9,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { StatRightTopIcon } from "../../widgets/index.js";
 
 // import sub components
-import { LoanHistoryClient,ClientLoanAnalysis } from "../../sub-components/indexclient.js";
+import { LoanHistoryClient, ClientLoanAnalysis } from "../../sub-components/indexclient.js";
 
 // import required data files
 import ProjectsStatsData from "../../data/dashboard/ProjectsStatsData";
@@ -22,17 +22,19 @@ const LoanClient = () => {
         <Fragment>
             <div className="pt-10 pb-21" style={{ backgroundColor: 'rgb(255, 36, 0)' }}></div>
             <Container fluid className="mt-n22 px-6">
+
+
                 <Row>
                     <Col lg={12} md={12} xs={12}>
                         {/* Page header */}
                         <div>
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="mb-2 mb-lg-0">
-                                    <h3 className="mb-0  text-white">Loan Page </h3>
+                                    <h3 className="mb-0  text-white" >Loan Page </h3>
                                 </div>
                                 {/* <div>
-                                    <Link href="#" className="btn btn-white">Create New Project</Link>
-                                </div> */}
+                                        <Link href="#" className="btn btn-white">Create New Project</Link>
+                                    </div> */}
                             </div>
                         </div>
                     </Col>
@@ -40,14 +42,21 @@ const LoanClient = () => {
                 </Row>
 
 
+                <div style={{ marginTop: 40, backgroundColor: 'rgb(34, 139, 34)', borderRadius: 20, width: 200, height: 35, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Link href="/pageroutesclient/loanapplication " style={{ color: "white", fontSize:14 }}  >
+                        Apply Loan
+                    </Link>
+                </div>
 
-                <Row className="my-6">
+
+
+                <Row className="my-4">
 
 
                     <Col xl={3} lg={12} md={12} xs={12} >
                         {LoanDataclient.map((item, index) => {
                             return (
-                                <div  key={index} style={{ marginTop: 10 }}>
+                                <div key={index} style={{ marginTop: 10 }}>
                                     <SaveDashboard info={item} />
                                 </div>
                             )
@@ -62,7 +71,7 @@ const LoanClient = () => {
                         <div>
                             <ClientLoanAnalysis />
                             <div style={{ marginTop: 10 }}>
-                           < LoanHistoryClient/>
+                                < LoanHistoryClient />
                             </div>
 
                         </div>

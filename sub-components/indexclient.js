@@ -18,7 +18,7 @@ import SavingPerformanceClient from './savepage/Saveperfomanceclient';
 // sub components for /pages/loanpage
 
 import ClientLoanAnalysis from './loanpage/ClientloanAnalysis';
-import LoanHistoryClient from './loanpage/Loanhistoryclient';
+import LoanHistoryClient from './loanpage/loanhistoryclient';
 
 
 // sub components for /pages/history

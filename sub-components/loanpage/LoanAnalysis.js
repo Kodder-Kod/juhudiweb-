@@ -143,8 +143,8 @@ const LoanAnalysis = () => {
                     </div>
 
                 </div>
-                <div className="graphs md:flex md:flex-row flex-col">
-                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
+                <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15,  }} >
                         <p>Total loans by time</p>
                         <AreaChart
                             width={isMobile ? 300 : 410}
@@ -180,7 +180,7 @@ const LoanAnalysis = () => {
                         <Tooltip />
                     </LineChart>*/ }
 
-                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15}}>
 
                         <p> Saving amount by Member</p>
 

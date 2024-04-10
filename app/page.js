@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { firebase } from "../config";
 import { db } from "../config";
 import { ref, set, onValue, push, remove, update } from 'firebase/database';
-import SignIn from './authentication/sign-In';
+
 import Admin from './admin/page';
+import SignInclient from './authentication/sign-in-client';
 
 export default function Home() {
     const [initializing, setInitializing] = useState(true);
@@ -24,7 +25,7 @@ export default function Home() {
 
     // If no user is signed in, render the SignIn component
     if (!user) {
-        return <SignIn />;
+        return <SignInclient />;
     }
 
     // If user is signed in, render the Admin component

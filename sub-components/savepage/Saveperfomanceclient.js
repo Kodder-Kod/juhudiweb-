@@ -11,7 +11,7 @@ const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const SavingPerformanceClient = () => {
+const SavingPerformance = () => {
 
 
     const [isMobile, setIsMobile] = useState(false);
@@ -143,7 +143,7 @@ const SavingPerformanceClient = () => {
                     </div>
 
                 </div>
-                <div className="graphs md:flex md:flex-row flex-col">
+                <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
                         <p>Total savings by time</p>
                         <AreaChart
@@ -222,4 +222,4 @@ const SavingPerformanceClient = () => {
     )
 }
 
-export default SavingPerformanceClient;
+export default SavingPerformance

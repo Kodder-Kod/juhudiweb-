@@ -143,8 +143,9 @@ const ClientLoanAnalysis = () => {
                     </div>
 
                 </div>
-                <div className="graphs md:flex md:flex-row flex-col">
-                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
+                <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
+
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15   }} >
                         <p>Loan  amount by Months</p>
                         <AreaChart
                             width={isMobile ? 300 : 410}

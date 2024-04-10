@@ -11,7 +11,7 @@ import { firebase } from '../../config.js';
 import AuthLayout from "../../layouts/AuthLayout";
 import { useRouter } from "next/navigation";
 
-const SignUp = () => {
+const SignUpclient = () => {
 
   const router = useRouter()
 
@@ -85,7 +85,7 @@ const SignUp = () => {
 
                     if (newAdminKey) {
 
-                      router.push('../pageroutes/admin');
+                      router.push('../pageroutesclient/dashboardclient');
                     }
 
                   } catch {
@@ -213,6 +213,6 @@ const SignUp = () => {
   );
 };
 
-SignUp.Layout = AuthLayout;
+SignUpclient.Layout = AuthLayout;
 
-export default SignUp;
+export default SignUpclient;

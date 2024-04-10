@@ -40,6 +40,14 @@ const Loan = () => {
                 </Row>
 
 
+                <div style={{ marginTop: 40, backgroundColor: 'rgb(34, 139, 34)', borderRadius: 20, width: 200, height: 35, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Link href="/pageroutes/loanapplicationadmin " style={{ color: "white", fontSize:14 }}  >
+                    Loan Applicants
+                    </Link>
+                </div>
+
+
+
 
                 <Row className="my-6">
 

@@ -56,14 +56,7 @@ const ProfileHeader = () => {
                 <p className="mb-0 d-block">juhudi@gmail.com</p>
               </div>
             </div>
-            <div>
-              <Link
-                href=""
-                className="btn btn-outline-primary d-none d-md-block"
-              >
-                Edit Profile
-              </Link>
-            </div>
+          
           </div>
           {/* nav */}
           <ul className="nav nav-lt-tab px-4" id="pills-tab" role="tablist">

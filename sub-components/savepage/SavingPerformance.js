@@ -143,7 +143,7 @@ const SavingPerformance = () => {
                     </div>
 
                 </div>
-                <div className="graphs md:flex md:flex-row flex-col">
+                <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }} >
                         <p>Total savings by time</p>
                         <AreaChart
