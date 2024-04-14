@@ -115,11 +115,11 @@ const SignIn = () => {
               <div></div>
               <div style={{ margin: 10 }} >
               <Link
-                href="/pageroutesclient/signinclient/"
+                href="/pageroutesclient/signinclient"
                 
                 style={{ color: "blue", fontStyle:'italic', fontSize:10 }}
               >
-              back to client page
+              back to client login
               </Link>
             </div>
               </div>

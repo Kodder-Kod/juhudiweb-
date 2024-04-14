@@ -118,7 +118,7 @@ const fetchRole = async (email) => {
                 
                 style={{ color: "blue", fontStyle:'italic', fontSize:10 }}
               >
-              Admin page
+              Admin login
               </Link>
             </div>
               </div>
