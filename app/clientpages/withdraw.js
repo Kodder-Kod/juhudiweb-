@@ -11,7 +11,7 @@ import AuthLayout from "../../layouts/AuthLayout";
 import { useRouter } from "next/navigation";
 
 
-const LoanApplication = () => {
+const WithdrawPage = () => {
 
 
 
@@ -44,23 +44,15 @@ const LoanApplication = () => {
                     {/* Card body */}
                     <Card.Body className="p-6">
                         <div className="mb-4" style={{ display: "flex", alignItem: 'center', justifyContent: 'center' }} >
-                            <h3 style={{fontSize:20, fontWeight:"bold"}}> Loan Application Form </h3>
+                            <h3 style={{fontSize:20, fontWeight:"bold"}}>Withdraw from Juhudi Sacco </h3>
                         </div>
 
-
-                        <div style={{}}>
-
-                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <h3 style={{ fontSize: 20, marginTop: 10, fontWeight: "bold" }}>
-                                    User Details
-                                </h3>
-                            </div>
-                        </div>
+                      
                         {/* Form */}
                         <Form onSubmit={handleFormSubmit}>
                             {/* Username */}
                             <Form.Group className="mb-3" controlId="username">
-                                <Form.Label>Name of the applicant </Form.Label>
+                                <Form.Label>Name of the Member </Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="username"
@@ -70,7 +62,7 @@ const LoanApplication = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="email">
-                                <Form.Label>Enter national ID number of the applicant</Form.Label>
+                                <Form.Label>Enter national ID number of the Members</Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="phone"
@@ -92,68 +84,15 @@ const LoanApplication = () => {
 
                             {/* Password */}
                             <Form.Group className="mb-3" controlId="password">
-                                <Form.Label>Loan Amount</Form.Label>
+                                <Form.Label>Withdraw Amount</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="password"
-                                    placeholder="Enter loan amount "
+                                    name="withdraw"
+                                    placeholder="Enter withdraw amount "
                                     required=""
                                 />
                             </Form.Group>
 
-                            {/* Confirm Password */}
-                            <Form.Group className="mb-3" controlId="confirm-password">
-                                <Form.Label>Duration of loan</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    name="conpassword"
-                                    placeholder="how long will you take the loan"
-                                    required=""
-                                />
-                            </Form.Group>
-
-                            <div style={{}}>
-
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h3 style={{ fontSize: 20, marginTop: 10, fontWeight: "bold" }}>
-                                        Guarantor Details
-                                    </h3>
-                                </div>
-                            </div>
-
-
-
-                            <Form.Group className="mb-3" controlId="username">
-                                <Form.Label>Name of the Guarantor </Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="username"
-                                    placeholder="Enter Full Names "
-                                    required=""
-                                />
-                            </Form.Group>
-
-
-                            <Form.Group className="mb-3" controlId="email">
-                                <Form.Label>Enter national ID number of the Guarantor</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="phone"
-                                    placeholder=" Enter national ID number "
-                                    required=""
-                                />
-                            </Form.Group>
-
-                            {/* Email */}
-                            <Form.Group className="mb-3" controlId="email">
-                                <Form.Label>Phone Number of the Guarantor</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="phone"
-                                    placeholder="Enter Phone Number "
-                                    required=""
-                                />
-                            </Form.Group>
 
 
                             {/* Checkbox */}
@@ -171,7 +110,7 @@ const LoanApplication = () => {
                                 {/* Button */}
                                 <div className="d-grid">
                                     <Button variant="primary" type="submit" style={{ backgroundColor: 'rgb(34, 139, 34)' }}>
-                                        Apply Loan
+                                        Withdraw
                                     </Button>
                                 </div>
                                 <div className="d-grid mt-2">
@@ -189,6 +128,6 @@ const LoanApplication = () => {
 };
 
 
-LoanApplication.Layout = AuthLayout;
+WithdrawPage.Layout = AuthLayout;
 
-export default LoanApplication;
+export default WithdrawPage;

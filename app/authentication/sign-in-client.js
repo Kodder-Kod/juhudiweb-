@@ -169,7 +169,7 @@ const fetchRole = async (email) => {
                 </div>
                 <div className="d-md-flex justify-content-between mt-4">
                   <div className="mb-2 mb-md-0">
-                    <Link href="/pageroutes/sign-up" className="fs-5">
+                    <Link href="/pageroutesclient/signupclient" className="fs-5">
                       Create An Account{" "}
                     </Link>
                   </div>

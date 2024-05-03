@@ -37,6 +37,8 @@ import {
 	Phone,
 	Messenger
 } from 'react-bootstrap-icons';
+import { LiaPiggyBankSolid } from "react-icons/lia";
+import { GiReceiveMoney } from "react-icons/gi";
 
 
 export const DashboardMenu = [
@@ -55,13 +57,13 @@ export const DashboardMenu = [
 	{
 		id: uuid(),
 		title: 'Savings',
-		icon: <Save size={18} style={{color:"white"}}/>,
+		icon: <LiaPiggyBankSolid  size={25} style={{color:"white"}}/>,
 		link: '/pageroutes/saveroute'
 	},	
 	{
 		id: uuid(),
 		title: 'Loans',
-		icon: <Upload size={18} style={{color:"white"}}/>,
+		icon: <GiReceiveMoney size={25} style={{color:"white"}}/>,
 		link: '/pageroutes/loanroute'
 	},
 	{

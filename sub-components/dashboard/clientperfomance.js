@@ -140,7 +140,7 @@ const ClientPerformance = () => {
     };
 
     return (
-        <Card className="h-100 my-5" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
+        <Card className="h-100 my-5">
             {/* card body  */}
             <Card.Body>
                 <div className="d-flex align-items-center justify-content-between">
@@ -149,38 +149,43 @@ const ClientPerformance = () => {
                     </div>
 
                 </div>
-                <div className="graphs">
-        
-            <div style={{ margin: 5 ,marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Saving amount by Month</p>
-                <BarChart
-                    width={isMobile ? 300 : 390}
-                    height={isMobile ? 300: 300}
-                    data={data}
-                >
-                    <XAxis dataKey="name" stroke="#8884d8" />
-                    <YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-                    <Bar dataKey="uv" barSize={30} fill="#8884d8" />
-                </BarChart>
-            </div>
+                <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
 
-            <div style={{ marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
-                <p>Loan amount by month</p>
-                <BarChart
-                    width={isMobile ? 300 : 390}
-                    height={isMobile ? 300 :300}
-                    data={data}
-                >
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-                    <Bar dataKey="uv" barSize={30} fill="#8884d8" />
-                </BarChart>
-            </div>
-        </div>
+
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
+                        <p>Saving amount by Month</p>
+                        <div>
+                            <BarChart
+                                width={isMobile ? 250 : 390}
+                                height={isMobile ? 300 : 300}
+                                data={data}
+                            >
+                                <XAxis dataKey="name" stroke="#8884d8" />
+                                <YAxis />
+                                <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                                <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                                <Bar dataKey="uv" barSize={30} fill="#8884d8" />
+                            </BarChart>
+
+                        </div>
+
+                    </div>
+
+                    <div style={{ margin: 5, marginTop: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', borderRadius: 10, padding: 15 }}>
+                        <p>Loan amount by month</p>
+                        <BarChart
+                            width={isMobile ? 250 : 390}
+                            height={isMobile ? 300 : 300}
+                            data={data}
+                        >
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                            <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                            <Bar dataKey="uv" barSize={30} fill="#8884d8" />
+                        </BarChart>
+                    </div>
+                </div>
 
 
             </Card.Body>

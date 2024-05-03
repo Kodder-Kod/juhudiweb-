@@ -6,6 +6,7 @@ import { ref, set, onValue, push, remove, update } from 'firebase/database';
 
 import Admin from './admin/page';
 import SignInclient from './authentication/sign-in-client';
+import DashboadPageClient from './pageroutesclient/dashboardclient/page';
 
 export default function Home() {
     const [initializing, setInitializing] = useState(true);
@@ -25,9 +26,9 @@ export default function Home() {
 
     // If no user is signed in, render the SignIn component
     if (!user) {
-        return <SignInclient />;
+        return <DashboadPageClient />;
     }
 
     // If user is signed in, render the Admin component
-    return <Admin />;
+    return <DashboadPageClient />;
 }

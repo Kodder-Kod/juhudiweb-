@@ -42,23 +42,11 @@ import {
 export const DashboardMenuClient = [
 	{
 		id: uuid(),
-		title: 'Dashboard',
+		title: 'Home',
 		icon: <House size={18} style={{color:"white"}}/>,
 		link: '/pageroutesclient/dashboardclient'
 	},
 
-	{
-		id: uuid(),
-		title: 'Savings',
-		icon: <Save size={18} style={{color:"white"}}/>,
-		link: '/pageroutesclient/saveclientpage'
-	},	
-	{
-		id: uuid(),
-		title: 'Loans',
-		icon: <Upload size={18} style={{color:"white"}}/>,
-		link: '/pageroutesclient/loanclientpage'
-	},
 	{
 		id: uuid(),
 		title: 'Transacation History',

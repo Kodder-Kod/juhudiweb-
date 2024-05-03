@@ -15,7 +15,7 @@ const StatRightTopIcon = props => {
         }}>
             
             <Card.Body >
-                <div className="d-flex justify-content-between align-items-center mb-3" >
+                <div className="d-flex justify-content-between align-items-center " >
                     <div>
                         <h5 className="mb-0">{info.title}</h5>
                     </div>
