@@ -29,6 +29,8 @@ export default function UIComponent() {
 
     return (
         <div>
+
+            <h4> Mpesa to Co-op bank </h4>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number" />
                 <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount" />
