@@ -10,7 +10,7 @@ export default function UIComponent() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         try {
             const token = await getToken();
             await makeSTKPushRequest(token, phoneNumber, amount, businessNumber, 'biztype'); // Replace 'biztype' with your actual transaction type
@@ -28,13 +28,19 @@ export default function UIComponent() {
     };
 
     return (
-        <div>
+        <div style={{ margin: 30 }}>
 
             <h4> Mpesa to Co-op bank </h4>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number" />
-                <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount" />
-                <input type="text" value={businessNumber} onChange={(e) => setBusinessNumber(e.target.value)} placeholder="Business Number" />
+            <div style={{ margin: 30 }}>
+                    <input type="text" value={businessNumber} onChange={(e) => setBusinessNumber(e.target.value)} placeholder="Business Number" />
+                </div>
+                <div style={{ margin: 30 }}>
+                    <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount" />
+                </div>
+                <div style={{ margin: 30 }}>
+                    <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number" />
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
