@@ -1,37 +1,81 @@
+"use client"
 // Import Axios
 import axios from 'axios';
+import { Buffer } from 'buffer';
 
-const getToken = async () => {
+
+
+const mpesaFun = (phoneNumber,totalPrice, businessNumber, biztype) => {
+
+    if (totalPrice) {//// put type of total price not interger not accept 
+
+        try {
+            if (phoneNumber == null || phoneNumber == undefined || phoneNumber == "") {
+
+                console.log("null worked")
+             
+
+            }
+
+            else if (phoneNumber[0] == "0") {
+
+                const tenje = phoneNumber.slice(1)
+                const calltoken = tokenFunc(tenje, totalPrice, businessNumber, biztype)
+
+            }
+
+            else if (phoneNumber[0] == "+" && phoneNumber[1] == "2" && phoneNumber[2] == "5" && phoneNumber[3] == "4") {
+
+                const tenje = phoneNumber.slice(4)
+                const calltoken = tokenFunc(tenje, totalPrice, businessNumber, biztype)
+
+            }
+
+            else if (phoneNumber[0] == "2" && phoneNumber[1] == "5" && phoneNumber[2] == "4") {
+
+                const tenje = phoneNumber.slice(3)
+                const calltoken = tokenFunc(tenje, totalPrice, businessNumber, biztype)
+
+            }
+
+            else {
+
+                const calltoken = tokenFunc(phoneNumber, totalPrice, businessNumber, biztype)
+            }
+        } catch {
+            console.log ('ngori')
+        }
+    } else {
+       console.log ('ngori')
+    }
+}
+
+
+
+const tokenFunc = async (tenje, totalPrice, businessNumber, biztype) => {
     try {
         const secret = "Gx5L7Xt7KoJC9GG9gTXht0GXUZReUHivVKKyWTIQ2cxtKHmAdA6AJDOff6E6Wsgn";
         const consumer = "A9kWPyOfAP1QgbtkGfWiwMDUvEC6eqVAlQdwD8yY9zYInkT0";
-        const auth = Buffer.from(`${consumer}:${secret}`).toString("base64");
+        const auth = btoa(`${consumer}:${secret}`);
 
-        // Fetch access token using Axios
-        const tokenResponse = await axios.get('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials', {
+        const authResponse = await fetch("https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials", {
+            method: "GET",
             headers: {
-                'Authorization': `Basic ${auth}`
-            }
+                Authorization: `Basic ${auth}`,
+            },
         });
 
-        const tokenData = tokenResponse.data;
-        return tokenData.access_token;
-    } catch (error) {
-        console.error('Error fetching token:', error);
-        throw error;
-    }
-};
+        const authData = await authResponse.json();
+        const tokenvar = authData.access_token;
 
-const makeSTKPushRequest = async (token, tenje, totalPrice, businessNumber, biztype) => {
-    try {
         const shortCode = businessNumber;
         const phone = tenje;
         const amount = totalPrice;
-        const passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        const passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
         const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
         const date = new Date();
         const timestamp = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${("0" + date.getDate()).slice(-2)}${("0" + date.getHours()).slice(-2)}${("0" + date.getMinutes()).slice(-2)}${("0" + date.getSeconds()).slice(-2)}`;
-        const password = Buffer.from(shortCode + passkey + timestamp).toString("base64");
+        const password = btoa(shortCode + passkey + timestamp);
 
         const data = {
             BusinessShortCode: shortCode,
@@ -42,27 +86,54 @@ const makeSTKPushRequest = async (token, tenje, totalPrice, businessNumber, bizt
             PartyA: `254${phone}`,
             PartyB: shortCode,
             PhoneNumber: `254${phone}`,
-            CallBackURL: "https://mydomain.com/path", // Change this to your desired domain
+            CallBackURL: "https://mydomain.com/path",
             AccountReference: shortCode,
             TransactionDesc: "Testing stk push",
         };
 
-        // Make STK push request using Axios
-        const response = await axios.post(url, data, {
+        console.log(tokenvar);
+
+        const response = await fetch(url, {
+            method: "POST",
             headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
+                Authorization: `Bearer ${tokenvar}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
         });
 
-        return response.data;
-    } catch (error) {
-        console.error('Error making STK push request:', error);
-        throw error;
+        const responseData = await response.json();
+        console.log(JSON.stringify(responseData), 'callback'); 
+    }
+    catch (error) {
+        console.error(error);
     }
 };
 
-export {
-    getToken,
-    makeSTKPushRequest
-};
+
+export default function Page({ stkResponse }) {
+    return (
+        <main>
+            <p>STK Push Response: {JSON.stringify(stkResponse)}</p>
+        </main>
+    )
+}
+
+export async function getServerSideProps(phoneNumber, amount, businessNumber, biztype) {
+    // Fetch data from external API
+    try {
+
+
+        // Make STK push request
+        const stkResponse = await mpesaFun(phoneNumber, amount, businessNumber, biztype);
+
+        // Pass data to the page via props
+        return { props: { stkResponse } };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return { props: { error: 'Failed to fetch data' } };
+    }
+}
+
+
+

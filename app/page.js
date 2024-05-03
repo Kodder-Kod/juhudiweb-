@@ -26,9 +26,9 @@ export default function Home() {
 
     // If no user is signed in, render the SignIn component
     if (!user) {
-        return <DashboadPageClient />;
+        return <SignInclient />;
     }
 
     // If user is signed in, render the Admin component
-    return <DashboadPageClient />;
+    return <SignInclient />;
 }

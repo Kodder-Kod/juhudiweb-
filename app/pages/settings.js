@@ -18,7 +18,6 @@ const Settings = () => {
       <GeneralSetting />
 
       {/* Email Settings */}
-      <EmailSetting />
 
       {/* Settings for Preferences */}
 

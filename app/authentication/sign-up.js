@@ -83,6 +83,12 @@ const SignUp = () => {
                     const newAdminKey = newAdminRef.key;
 
 
+                    update(ref(db, `user/`), {
+                      Email: adminEmail,
+                      FirstName: adminName,
+
+                    })
+
                     if (newAdminKey) {
 
                       router.push('../pageroutes/admin');

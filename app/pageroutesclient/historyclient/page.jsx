@@ -9,12 +9,14 @@ import React from 'react'
 
 const HistoryClientpage = () => {
 
+
+
     return (
         <>
+{/**  <CoOpBankTransfer/> */}
+
             <ClientnavLayout>
                 <HistoryClient/>
-
-                <CoOpBankTransfer/>
             </ClientnavLayout>
 
         </>

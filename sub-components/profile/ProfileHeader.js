@@ -1,8 +1,63 @@
 // import node module libraries
+
+"use client"
+
+import React ,{useState, useEffect, useCallback} from "react"
+import { db } from "../../config";
+import { ref, set, onValue, push, remove, get } from 'firebase/database';
+import { firebase } from '../../config.js';
+
 import Link from "next/link";
 import { Col, Row, Image } from "react-bootstrap";
 
 const ProfileHeader = () => {
+
+  const [namefirst, setNamefirst] = useState()
+  const [namelast, setNamlast] = useState()
+  const [email, setEmail] = useState()
+  const [phone, setPhone] = useState()
+  const [location, setLocation] = useState()
+  const [bank, setBank] = useState()
+  const [account, setAccount] = useState()
+
+
+  const fetchData = useCallback(() => {
+      try {
+          const startCountRef = ref(db, `user/`);
+          onValue(startCountRef, (snapshot) => {
+
+              const data = snapshot.val();
+              if (data) {
+                  const location = data.Location;
+                  const firstname = data.FirstName;
+                  const lastname = data.LastName;
+                  const email = data.Email;
+                  const phone = data.Phone;
+                  const bank = data.Bank;
+                  const account = data.Account;
+
+                  setNamefirst(firstname)
+                  setNamlast(lastname)
+                  setLocation(location)
+                  setAccount(account)
+                  setBank(bank)
+                  setEmail(email)
+                  setPhone(phone)
+   
+              }
+          })
+
+      }
+      catch { console.log('cannot read Admin') }
+
+  }, []);
+
+  useEffect(() => {
+      fetchData();
+  }, [fetchData]);
+
+
+  
   return (
     <Row className="align-items-center">
       <Col xl={12} lg={12} md={12} xs={12}>
@@ -43,7 +98,7 @@ const ProfileHeader = () => {
               {/* text */}
               <div className="lh-1">
                 <h2 className="mb-0">
-                  Juhudi Sacco
+                  {namefirst} {namelast}
                   <Link
                     href="#!"
                     className="text-decoration-none"
@@ -53,7 +108,7 @@ const ProfileHeader = () => {
                     data-original-title="Beginner"
                   ></Link>
                 </h2>
-                <p className="mb-0 d-block">juhudi@gmail.com</p>
+                <p className="mb-0 d-block">{email}</p>
               </div>
             </div>
           

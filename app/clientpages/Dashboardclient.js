@@ -1,9 +1,13 @@
 'use client'
-import React from 'react'
+
 // import node module libraries
 import { Fragment } from "react";
 import Link from 'next/link';
 import { Container, Col, Row } from 'react-bootstrap';
+import React ,{useState, useEffect, useCallback} from "react"
+import { db } from "../../config";
+import { ref, set, onValue, push, remove, get } from 'firebase/database';
+import { firebase } from '../../config.js';
 
 import { BsSave } from "react-icons/bs";
 import { LiaPiggyBankSolid } from "react-icons/lia";
@@ -31,6 +35,50 @@ import { Rowdies } from 'next/font/google/index.js';
 
 const DashboardX2Client = () => {
 
+    const [namefirst, setNamefirst] = useState()
+    const [namelast, setNamlast] = useState()
+    const [email, setEmail] = useState()
+    const [phone, setPhone] = useState()
+    const [location, setLocation] = useState()
+    const [bank, setBank] = useState()
+    const [account, setAccount] = useState()
+
+
+    const fetchData = useCallback(() => {
+        try {
+            const startCountRef = ref(db, `user/`);
+            onValue(startCountRef, (snapshot) => {
+
+                const data = snapshot.val();
+                if (data) {
+                    const location = data.Location;
+                    const firstname = data.FirstName;
+                    const lastname = data.LastName;
+                    const email = data.Email;
+                    const phone = data.Phone;
+                    const bank = data.Bank;
+                    const account = data.Account;
+
+                    setNamefirst(firstname)
+                    setNamlast(lastname)
+                    setLocation(location)
+                    setAccount(account)
+                    setBank(bank)
+                    setEmail(email)
+                    setPhone(phone)
+     
+                }
+            })
+
+        }
+        catch { console.log('cannot read Admin') }
+
+    }, []);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
 
 
     return (
@@ -44,8 +92,8 @@ const DashboardX2Client = () => {
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="mb-2 mb-lg-0">
                                     <h3 className="mb-0  text-white" style={{ fontSize: 30 }}>Juhudi Sacco</h3>
-                                    <h3 className="mb-0  text-white mt-5" style={{ fontSize: 20 }}>Welcome name</h3>
-                                    <h3 className="mb-0  text-white" style={{ fontSize: 17 }}>Bio about user</h3>
+                                    <h3 className="mb-0  text-white mt-5" style={{ fontSize: 20 }}>Welcome {namefirst} {namelast}</h3>
+           
 
                                 </div>
                                 {/* <div>
@@ -149,7 +197,7 @@ const DashboardX2Client = () => {
                         <div style={{ alignContent: 'center', justifyContent: 'center', display: "flex" }}>
 
                             <Row className="pb-1 mt-6" style={{ alignItems: 'center', justifyContent: 'center', display: "flex" }}>
-                                <div class="flex items-center justify-center overflow-y-auto " style={{ height: 250, }}>
+                                <div className="flex items-center justify-center overflow-y-auto " style={{ height: 250, }}>
 
                                     <Row>
                                         {ProjectsStatsclient.map((item, index) => (
@@ -174,7 +222,7 @@ const DashboardX2Client = () => {
                         <div style={{ alignContent: 'center', justifyContent: 'center', display: "flex" }}>
 
                             <Row className="pb-1 mt-6" style={{ alignItems: 'center', justifyContent: 'center', display: "flex" }}>
-                                <div class="flex items-center justify-center overflow-y-auto " style={{ height: 250, }}>
+                                <div className="flex items-center justify-center overflow-y-auto " style={{ height: 250, }}>
 
                                     <Row>
                                         {ProjectsStatsclientloan.map((item, index) => (
